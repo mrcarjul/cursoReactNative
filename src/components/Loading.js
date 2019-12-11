@@ -29,7 +29,7 @@ class Loading extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Modal
           animationType='slide'
           visible={this.props.visible}
