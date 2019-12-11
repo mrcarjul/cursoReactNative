@@ -8,10 +8,17 @@ import {
   View
 } from "react-native";
 
+import registerForPushNotificationsAsync from "../utils/registerForPushNotifications";
+
 // Utils
 import colors from "../utils/colors";
 
 class Home extends React.Component {
+  componentDidMount = async () => {
+    const token = await registerForPushNotificationsAsync();
+    console.log("token", token);
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -29,7 +36,7 @@ class Home extends React.Component {
               }}
               style={{
                 width: 150,
-                height: 60,
+                height: 60
               }}
             />
           </View>
