@@ -34,6 +34,7 @@ class Loading extends React.Component {
           animationType='slide'
           visible={this.props.visible}
           onShow={this.animate}
+          onDismiss={this.props.onDismiss ? this.props.onDismiss : null}
         >
           <View
             style={[styles.centerContents, { backgroundColor: colors.blue }]}
