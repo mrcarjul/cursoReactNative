@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Switch, StyleSheet, View } from "react-native";
-import Login from "./src/screens/Login";
-import Home from "./src/screens/Home";
+import { StyleSheet, View } from "react-native";
+import Navigation from "./src/navigation";
 import Loading from "./src/components/Loading";
 
-
 export default function App() {
+  const [visible, setVisible] = useState(false);
   return (
     <View style={styles.container}>
-      <Home />
+      <Navigation screenProps={{ visible, setVisible }} />
+      <Loading visible={visible} />
     </View>
   );
 }
