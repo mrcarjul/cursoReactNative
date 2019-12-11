@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  ActivityIndicator,
   Modal,
   StyleSheet,
   Text,
@@ -8,6 +7,7 @@ import {
   View
 } from "react-native";
 import colors from "../utils/colors";
+import LottieView from "lottie-react-native";
 
 class Loading extends React.Component {
   constructor(props) {
@@ -17,6 +17,10 @@ class Loading extends React.Component {
     };
   }
 
+  animate = () => {
+    this.animation.play();
+  };
+
   toggleModal = () => {
     this.setState({ visible: !this.state.visible });
   };
@@ -24,15 +28,24 @@ class Loading extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Modal animationType='slide' visible={this.state.visible}>
+        <Modal
+          animationType='slide'
+          visible={this.state.visible}
+          onShow={this.animate}
+        >
           <View style={styles.centerContents}>
-            <ActivityIndicator color={colors.black} size='large' />
+            <LottieView
+              ref={animation => {
+                this.animation = animation;
+              }}
+              source={require("../assets/animation.json")}
+            />
           </View>
         </Modal>
         <View style={styles.centerContents}>
           <TouchableHighlight
             onPress={this.toggleModal}
-            style={[styles.button, styles.centerContents, { flex: 0}]}
+            style={[styles.button, styles.centerContents, { flex: 0 }]}
           >
             <Text style={styles.text}>Mostrar Modal</Text>
           </TouchableHighlight>
