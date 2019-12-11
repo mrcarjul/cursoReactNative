@@ -2,6 +2,7 @@ import React from "react";
 import {
   ActivityIndicator,
   Modal,
+  StyleSheet,
   Text,
   TouchableHighlight,
   View
@@ -22,16 +23,43 @@ class Loading extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Modal animationType='slide' visible={this.state.visible}>
-          <View>
+          <View style={styles.centerContents}>
             <ActivityIndicator color={colors.black} size='large' />
           </View>
         </Modal>
-        <TouchableHighlight onPress={this.toggleModal} >
-          <Text>Mostrar Modal</Text>
-        </TouchableHighlight>
+        <View style={styles.centerContents}>
+          <TouchableHighlight
+            onPress={this.toggleModal}
+            style={[styles.button, styles.centerContents, { flex: 0}]}
+          >
+            <Text style={styles.text}>Mostrar Modal</Text>
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    width: 200,
+    height: 60,
+    backgroundColor: colors.white
+  },
+  centerContents: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center"
+  },
+  container: {
+    flex: 1,
+    backgroundColor: colors.black
+  },
+  text: {
+    color: colors.black
+  }
+});
+
+export default Loading;
