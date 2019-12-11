@@ -1,5 +1,11 @@
-import React from "react";
-import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import {
+  Platform,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View
+} from "react-native";
 
 // Expo
 import { LinearGradient } from "expo-linear-gradient";
@@ -11,17 +17,23 @@ import Input from "../components/Input";
 // Utils
 import colors from "../utils/colors";
 
+const PlatformColors =
+  Platform.OS === "ios"
+    ? [colors.black, colors.white]
+    : [colors.blue, colors.lightBlue];
+
 export default function App() {
+  const [correo, setCorreo] = useState("");
+  const [password, setPassword] = useState("");
+
   const onLogin = () => {
-    console.log("Iniciar sesión");
+    console.log("correo: ", correo);
+    console.log("password: ", password);
   };
 
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={[colors.blue, colors.lightBlue]}
-        style={styles.container}
-      >
+      <LinearGradient colors={PlatformColors} style={styles.container}>
         <View style={styles.centerContents}>
           <AntDesign name={"rocket1"} size={80} color={colors.black} />
         </View>
@@ -30,11 +42,15 @@ export default function App() {
             title='Escriba su nombre de usuario'
             placeholder='Correo'
             keyboardType='email-address'
+            value={correo}
+            onChangeText={text => setCorreo(text)}
           />
           <Input
             title='Escriba su Contraseña'
             placeholder='Contraseña'
             secureTextEntry
+            value={password}
+            onChangeText={text => setPassword(text)}
           />
         </View>
         <View style={styles.centerContents}>

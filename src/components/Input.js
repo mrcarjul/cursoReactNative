@@ -3,7 +3,7 @@ import { Text, TextInput, StyleSheet, View } from "react-native";
 import colors from "../utils/colors";
 
 /**
- * @description Renderiza iun texto y un text input
+ * @description Renderiza un texto y un text input
  * @param {*} props
  * Es un objeto que representa de esta manera
  *  props= {
