@@ -10,19 +10,21 @@ import colors from "../utils/colors";
 import LottieView from "lottie-react-native";
 
 class Loading extends React.Component {
+  /*
   constructor(props) {
     super(props);
     this.state = {
       visible: false
     };
   }
+  */
 
   animate = () => {
     this.animation.play();
   };
 
   toggleModal = () => {
-    this.setState({ visible: !this.state.visible });
+    // this.setState({ visible: !this.state.visible });
   };
 
   render() {
@@ -30,10 +32,12 @@ class Loading extends React.Component {
       <View style={styles.container}>
         <Modal
           animationType='slide'
-          visible={this.state.visible}
+          visible={this.props.visible}
           onShow={this.animate}
         >
-          <View style={styles.centerContents}>
+          <View
+            style={[styles.centerContents, { backgroundColor: colors.blue }]}
+          >
             <LottieView
               ref={animation => {
                 this.animation = animation;
@@ -42,14 +46,14 @@ class Loading extends React.Component {
             />
           </View>
         </Modal>
-        <View style={styles.centerContents}>
+        {/*<View style={styles.centerContents}>
           <TouchableHighlight
             onPress={this.toggleModal}
             style={[styles.button, styles.centerContents, { flex: 0 }]}
           >
             <Text style={styles.text}>Mostrar Modal</Text>
           </TouchableHighlight>
-        </View>
+            </View>*/}
       </View>
     );
   }
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: colors.black
+    backgroundColor: colors.blue
   },
   text: {
     color: colors.black
