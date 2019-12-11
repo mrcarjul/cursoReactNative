@@ -22,13 +22,19 @@ const PlatformColors =
     ? [colors.black, colors.white]
     : [colors.blue, colors.lightBlue];
 
-export default function App() {
+export default function Login({ navigation }) {
   const [correo, setCorreo] = useState("");
   const [password, setPassword] = useState("");
 
   const onLogin = () => {
     console.log("correo: ", correo);
     console.log("password: ", password);
+    const { visible, setVisible } = navigation.getScreenProps();
+    setVisible(true);
+    setTimeout(() => {
+      setVisible(false);
+      navigation.navigate("Home");
+    }, 3000);
   };
 
   return (
