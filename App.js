@@ -18,7 +18,6 @@ export default function App() {
     const notificationSubscription = Notifications.addListener(
       handleNotification
     );
-    debugger;
   }, []);
 
   const handleNotification = not => {
