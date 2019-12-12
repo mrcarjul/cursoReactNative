@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Core
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet, View } from "react-native";
 
 // Components
 import Navigation from "./src/navigation";
@@ -9,6 +9,21 @@ import Loading from "./src/components/Loading";
 
 // Expo
 import { Notifications } from "expo";
+import Constants from "expo-constants";
+import colors from "./src/utils/colors";
+
+function UteqStatusBar() {
+  return (
+    <View
+      style={{
+        backgroundColor: colors.blue,
+        height: Constants.statusBarHeight
+      }}
+    >
+      <StatusBar translucent barStyle='light-content' />
+    </View>
+  );
+}
 
 export default function App() {
   const [visible, setVisible] = useState(false);
@@ -34,6 +49,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <UteqStatusBar />
       <Navigation screenProps={{ visible, setVisible }} />
       <Loading visible={visible} />
     </View>
