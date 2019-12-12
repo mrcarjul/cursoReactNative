@@ -15,7 +15,7 @@ import * as Location from "expo-location";
 import customStyles from "../utils/styles";
 import colors from "../utils/colors";
 
-function RenderLocation({ latitude, longitude, onPress }) {
+function RenderLocation({ address, latitude, longitude, onPress }) {
   return (
     <View>
       <Text style={styles.text}>
@@ -25,6 +25,7 @@ function RenderLocation({ latitude, longitude, onPress }) {
       <TouchableHighlight onPress={onPress}>
         <Text style={styles.text}>Obtener Dirección</Text>
       </TouchableHighlight>
+      {address && <Text>{JSON.stringify(address)}</Text>}
     </View>
   );
 }
@@ -32,6 +33,7 @@ function RenderLocation({ latitude, longitude, onPress }) {
 function Geolocalizacion() {
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState(null);
+  const [address, setAddress] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
@@ -62,9 +64,25 @@ function Geolocalizacion() {
    * },
    * "timestamp":1576178996909.2932}
    */
+
+  /**
+   * location
+   * {
+   *  latitude,
+   *  longitude
+   * }
+   */
+  const reverseGeocode = () => {
+    Location.reverseGeocodeAsync({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    }).then(address => {
+      setAddress(address);
+    });
+  };
+
   const { coords } = location || {};
   const { latitude, longitude } = coords || {};
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Geolocalización</Text>
@@ -78,15 +96,12 @@ function Geolocalizacion() {
           {errorMessage ? (
             <Text>{errorMessage}</Text>
           ) : (
-            <View>
-              <Text style={styles.text}>
-                latitude: {latitude}
-                {"\n"}longitude: {longitude}
-              </Text>
-              <TouchableHighlight>
-                <Text style={styles.text}>Obtener Dirección</Text>
-              </TouchableHighlight>
-            </View>
+            <RenderLocation
+              address={address}
+              latitude={latitude}
+              longitude={longitude}
+              onPress={reverseGeocode}
+            />
           )}
         </View>
       )}
