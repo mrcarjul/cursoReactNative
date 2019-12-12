@@ -10,7 +10,7 @@ import {
 import colors from "../utils/colors";
 
 /**
- * Manejo de Animaciones en Secuencia
+ * Manejo de Animaciones Interpolaciones
  */
 class Practica3 extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class Practica3 extends React.Component {
   startAnimation = () => {
     Animated.timing(this.state.animation, {
       toValue: 1,
-      duration: 1500
+      duration: 1500,
     }).start(() => {
       Animated.timing(this.state.animation, {
         toValue: 2,
