@@ -10,13 +10,12 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import AppStyles from "../utils/styles";
 import colors from "../utils/colors";
 
-function EditText() {
+function Practica5() {
   const [textStyle, setTextStyle] = React.useState({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center"
   });
-
 
   return (
     <View style={styles.container}>
@@ -58,9 +57,11 @@ function EditText() {
 const styles = StyleSheet.create({
   ...AppStyles,
   bar: {
+    borderBottomColor: colors.black,
+    borderBottomWidth: 1,
     flexDirection: "row",
-    justifyContent: "space-around",
-    height: 60
+    height: 60,
+    justifyContent: "space-around"
   },
   text: {
     fontSize: 30
@@ -69,3 +70,5 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+export default Practica5;
