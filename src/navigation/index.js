@@ -15,6 +15,7 @@ import Login from "../screens/Login";
 import Home from "../screens/Home";
 import Geolocalizacion from "../screens/Geolocalizacion";
 import Gallery from "../screens/Gallery";
+import Listas from "../screens/Listas";
 
 // Practicas
 import Practica1 from "../practicas/practica1";
@@ -76,7 +77,8 @@ const Drawer = createDrawerNavigator(
     },
     Geolocalizacion: { screen: Geolocalizacion },
     Gallery: { screen: Gallery },
-    Practicas: { screen: TabNavigator }
+    Practicas: { screen: TabNavigator },
+    Listas: { screen: Listas }
   },
   {
     initialRouteName: "Home",
@@ -87,7 +89,7 @@ const Drawer = createDrawerNavigator(
     },
     drawerBackgroundColor: colors.gray,
     drawerWidth: width * 0.5,
-    drawerPosition: 'right',
+    drawerPosition: "right",
     labelStyle: {
       fontSize: 21,
       fontWeight: "bold"
