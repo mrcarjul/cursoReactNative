@@ -13,6 +13,9 @@ import registerForPushNotificationsAsync from "../utils/registerForPushNotificat
 // Utils
 import colors from "../utils/colors";
 
+// Personalized components
+import Header from "../components/Header";
+
 class Home extends React.Component {
   componentDidMount = async () => {
     const token = await registerForPushNotificationsAsync();
@@ -23,6 +26,7 @@ class Home extends React.Component {
     const { notification } = this.props.navigation.getScreenProps();
     return (
       <View style={styles.container}>
+        <Header navigation={this.props.navigation} title='Home' />
         <ImageBackground
           source={require("../assets/backgroundImage.jpeg")}
           style={{ width: "100%", height: "100%" }}
