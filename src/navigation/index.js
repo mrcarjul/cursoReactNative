@@ -18,6 +18,7 @@ import Practica1 from "../practicas/practica1";
 import Practica2 from "../practicas/practica2";
 import Practica3 from "../practicas/practica3";
 import Practica4 from "../practicas/practica4";
+import Practica5 from "../practicas/practica5";
 
 // Todo Configuracion del drawer
 
@@ -30,10 +31,11 @@ const SwitchNavigator = createSwitchNavigator(
     Practica3: { screen: Practica3 },
     Practica4: { screen: Practica4 },
     Geolocalizacion: { screen: Geolocalizacion },
-    Gallery: { screen: Gallery }
+    Gallery: { screen: Gallery },
+    Practica5: { screen: Practica5 }
   },
   {
-    initialRouteName: "Gallery"
+    initialRouteName: "Practica5"
   }
 );
 
