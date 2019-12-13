@@ -17,34 +17,56 @@ function Practica5() {
     textAlign: "center"
   });
 
+  const updateStyle = (prop, value) => {
+    setTextStyle({
+      ...textStyle,
+      [prop]: value
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.bar}>
-        <Text>B</Text>
+        <Text
+          onPress={() =>
+            updateStyle(
+              "fontWeight",
+              textStyle.fontWeight === "bold" ? "normal" : "bold"
+            )
+          }
+          style={{ fontSize: 24 }}
+        >
+          B
+        </Text>
         <MaterialCommunityIcons
-          size={25}
+          size={26}
           name='format-font-size-increase'
           color={colors.black}
+          onPress={() => updateStyle("fontSize", textStyle.fontSize + 1)}
         />
         <MaterialCommunityIcons
-          size={25}
+          size={26}
           name='format-font-size-decrease'
           color={colors.black}
+          onPress={() => updateStyle("fontSize", textStyle.fontSize - 1)}
         />
         <MaterialIcons
           size={25}
           name='format-align-left'
           color={colors.black}
+          onPress={() => updateStyle("textAlign", "left")}
         />
         <MaterialIcons
           size={25}
           name='format-align-center'
           color={colors.black}
+          onPress={() => updateStyle("textAlign", "center")}
         />
         <MaterialIcons
           size={25}
-          name='format-align-left'
+          name='format-align-right'
           color={colors.black}
+          onPress={() => updateStyle("textAlign", "right")}
         />
       </View>
       <View style={[styles.container, styles.textContainer]}>
@@ -57,6 +79,7 @@ function Practica5() {
 const styles = StyleSheet.create({
   ...AppStyles,
   bar: {
+    alignItems: "center",
     borderBottomColor: colors.black,
     borderBottomWidth: 1,
     flexDirection: "row",
