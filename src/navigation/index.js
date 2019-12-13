@@ -87,6 +87,7 @@ const Drawer = createDrawerNavigator(
     },
     drawerBackgroundColor: colors.gray,
     drawerWidth: width * 0.5,
+    drawerPosition: 'right',
     labelStyle: {
       fontSize: 21,
       fontWeight: "bold"
