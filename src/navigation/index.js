@@ -1,9 +1,11 @@
 import React from "react";
 
+import { Dimensions } from "react-native";
+
 // Navigation
 import {
-  createDrawerNavigator,
   createAppContainer,
+  createDrawerNavigator,
   createSwitchNavigator
 } from "react-navigation";
 
@@ -20,11 +22,12 @@ import Practica3 from "../practicas/practica3";
 import Practica4 from "../practicas/practica4";
 import Practica5 from "../practicas/practica5";
 
-// Todo Configuracion del drawer
+import colors from "../utils/colors";
 
-const SwitchNavigator = createSwitchNavigator(
+const { width } = Dimensions.get("window");
+
+const Drawer = createDrawerNavigator(
   {
-    Login: { screen: Login },
     Home: { screen: Home },
     Practica1: { screen: Practica1 },
     Practica2: { screen: Practica2 },
@@ -33,6 +36,21 @@ const SwitchNavigator = createSwitchNavigator(
     Geolocalizacion: { screen: Geolocalizacion },
     Gallery: { screen: Gallery },
     Practica5: { screen: Practica5 }
+  },
+  {
+    initialRouteName: "Home",
+    contentOptions: {
+      activeBackgroundColor: colors.white,
+      activeTintColor: colors.blue
+    },
+    drawerWidth: width * 0.5
+  }
+);
+
+const SwitchNavigator = createSwitchNavigator(
+  {
+    Login: { screen: Login },
+    Drawer: { screen: Drawer }
   },
   {
     initialRouteName: "Login"

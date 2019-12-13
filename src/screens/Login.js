@@ -33,7 +33,7 @@ export default function Login({ navigation }) {
     setVisible(true);
     setTimeout(() => {
       setVisible(false);
-      navigation.navigate("Home");
+      navigation.navigate("Drawer");
     }, 3000);
   };
 
