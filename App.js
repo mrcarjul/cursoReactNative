@@ -33,6 +33,22 @@ export default function App() {
     const notificationSubscription = Notifications.addListener(
       handleNotification
     );
+    /*
+    Notifications.presentLocalNotificationAsync({
+      title: "Hola Notificación Local",
+      body: "Cuerpo de la Notificación"
+    }); */
+    /*
+    Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "Hola Notificación Programada",
+        body: "Cuerpo de la Notificación Programada"
+      },
+      {
+        repeat: "minute",
+        time: new Date().getTime() + 10000
+      }
+    );*/
   }, []);
 
   const handleNotification = not => {
