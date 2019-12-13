@@ -11,6 +11,7 @@ import {
 import Login from "../screens/Login";
 import Home from "../screens/Home";
 import Geolocalizacion from "../screens/Geolocalizacion";
+import Gallery from "../screens/Gallery";
 
 // Practicas
 import Practica1 from "../practicas/practica1";
@@ -28,10 +29,11 @@ const SwitchNavigator = createSwitchNavigator(
     Practica2: { screen: Practica2 },
     Practica3: { screen: Practica3 },
     Practica4: { screen: Practica4 },
-    Geolocalizacion: { screen: Geolocalizacion }
+    Geolocalizacion: { screen: Geolocalizacion },
+    Gallery: { screen: Gallery }
   },
   {
-    initialRouteName: "Geolocalizacion"
+    initialRouteName: "Gallery"
   }
 );
 
