@@ -27,7 +27,7 @@ function UteqStatusBar() {
 
 export default function App() {
   const [visible, setVisible] = useState(false);
-  const [notification, setNotification] = useState([]);
+  const [notification, setNotification] = useState({});
 
   useEffect(() => {
     const notificationSubscription = Notifications.addListener(
@@ -37,6 +37,7 @@ export default function App() {
 
   const handleNotification = not => {
     console.log(JSON.stringify(not));
+    debugger;
     /* {
       data: {
         visible: true,
@@ -50,7 +51,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <UteqStatusBar />
-      <Navigation screenProps={{ visible, setVisible }} />
+      <Navigation screenProps={{ visible, setVisible, notification }} />
       <Loading visible={visible} />
     </View>
   );

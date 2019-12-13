@@ -35,7 +35,7 @@ const SwitchNavigator = createSwitchNavigator(
     Practica5: { screen: Practica5 }
   },
   {
-    initialRouteName: "Practica5"
+    initialRouteName: "Login"
   }
 );
 

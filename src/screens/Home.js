@@ -20,6 +20,7 @@ class Home extends React.Component {
   };
 
   render() {
+    const { notification } = this.props.navigation.getScreenProps();
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -41,7 +42,13 @@ class Home extends React.Component {
             />
           </View>
           <View style={styles.container}></View>
-          <View style={styles.container}></View>
+          <View style={styles.container}>
+            <Text>
+              {notification && notification.data
+                ? notification.data.texto
+                : null}
+            </Text>
+          </View>
         </ImageBackground>
       </View>
     );
