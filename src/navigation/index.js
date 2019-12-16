@@ -16,6 +16,7 @@ import Home from "../screens/Home";
 import Geolocalizacion from "../screens/Geolocalizacion";
 import Gallery from "../screens/Gallery";
 import Listas from "../screens/Listas";
+import ListaFlatList from "../screens/ListaFlatList";
 
 // Practicas
 import Practica1 from "../practicas/practica1";
@@ -78,7 +79,8 @@ const Drawer = createDrawerNavigator(
     Geolocalizacion: { screen: Geolocalizacion },
     Gallery: { screen: Gallery },
     Practicas: { screen: TabNavigator },
-    Listas: { screen: Listas }
+    Listas: { screen: Listas },
+    ListaFlatList: { screen: ListaFlatList }
   },
   {
     initialRouteName: "Home",
