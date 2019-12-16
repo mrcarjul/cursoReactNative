@@ -10,6 +10,7 @@ import Loading from "./src/components/Loading";
 // Expo
 import { Notifications } from "expo";
 import Constants from "expo-constants";
+import * as Permissions from "expo-permissions";
 import colors from "./src/utils/colors";
 
 function UteqStatusBar() {
@@ -33,27 +34,14 @@ export default function App() {
     const notificationSubscription = Notifications.addListener(
       handleNotification
     );
-    /*
-    Notifications.presentLocalNotificationAsync({
-      title: "Hola Notificación Local",
-      body: "Cuerpo de la Notificación"
-    }); */
-    /*
-    Notifications.scheduleLocalNotificationAsync(
-      {
-        title: "Hola Notificación Programada",
-        body: "Cuerpo de la Notificación Programada"
-      },
-      {
-        repeat: "minute",
-        time: new Date().getTime() + 10000
-      }
-    );*/
+    const hasPermissionForLocal = getDeviceNotificationsPermission();
+    if (hasPermissionForLocal) {
+      sendLocalNotification();
+    }
   }, []);
 
   const handleNotification = not => {
     console.log(JSON.stringify(not));
-    debugger;
     /* {
       data: {
         visible: true,
@@ -63,6 +51,43 @@ export default function App() {
     } */
     setNotification(not);
   };
+
+  // Revisamos si el usuario nos permite mandar notificaciones locales
+  const getDeviceNotificationsPermission = () => {
+    return Permissions.getAsync(Permissions.USER_FACING_NOTIFICATIONS).then(
+      ({ status }) => {
+        console.log("status", status);
+        return status === "granted";
+      }
+    );
+  };
+
+  // Envia notificacion Local
+  const sendLocalNotification = () => {
+    Notifications.presentLocalNotificationAsync({
+      title: "Hola Notificación Local",
+      body: "Cuerpo de la Notificación"
+    });
+  };
+
+  // Envia notificaciones apartir de los 10 segundos en que se levanta la app y los repite cada minuto
+  const sendScheduledNotification = () => {
+    Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "Hola Notificación Programada",
+        body: "Cuerpo de la Notificación Programada"
+      },
+      {
+        repeat: "minute",
+        time: new Date().getTime() + 10000
+      }
+    );
+  };
+
+  // Cancela todas las notificaciones programadas
+  const cancelNotifications = () => {
+    Notifications.cancelAllScheduledNotificationsAsync();
+  }
 
   return (
     <View style={styles.container}>
