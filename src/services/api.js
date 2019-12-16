@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const uri = "https://thundercomb-poetry-db-v1.p.rapidapi.com";
-const apikey = "62cd70b4abmsh7ac01c8e802038fp154a30jsnbb269c852313";
+const apikey = "";
 const headers = {
   "x-rapidapi-host": "thundercomb-poetry-db-v1.p.rapidapi.com",
   "x-rapidapi-key": apikey
