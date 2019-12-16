@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Core
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 // Utils
 import customStyles from "../utils/styles";
