@@ -24,6 +24,7 @@ import Practica2 from "../practicas/practica2";
 import Practica3 from "../practicas/practica3";
 import Practica4 from "../practicas/practica4";
 import Practica5 from "../practicas/practica5";
+import ExtraAnimation from "../practicas/ExtraAnimation";
 
 import colors from "../utils/colors";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -36,7 +37,8 @@ const TabNavigator = createBottomTabNavigator(
     Practica2: { screen: Practica2 },
     Practica3: { screen: Practica3 },
     Practica4: { screen: Practica4 },
-    Practica5: { screen: Practica5 }
+    Practica5: { screen: Practica5 },
+    ExtraAnimation: { screen: ExtraAnimation }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
