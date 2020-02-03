@@ -1,5 +1,5 @@
 # cursoReactNative
-Aplicación Base para el Curso de React Native TiTecnoEducación
+Aplicación Base para el Curso de React Native TiTecnoEducación - UTEQ
 
 
 Requerimientos Previos para instalación
